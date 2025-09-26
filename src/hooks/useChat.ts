@@ -6,13 +6,14 @@ export const useChat = () => {
   const [messages, setMessages] = useState<MessageData[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [isFirstMessage, setIsFirstMessage] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const sendMessage = async () => {
-    if (!inputValue.trim()) return;
+    if (!inputValue.trim() || isLoading) return;
 
     const userMessage: MessageData = {
       id: Date.now(),
-      text: inputValue,
+      data: inputValue,
       sender: "user",
       type: "text",
       timestamp: new Date(),
@@ -21,9 +22,28 @@ export const useChat = () => {
     setMessages((prev) => [...prev, userMessage]);
     setInputValue("");
     setIsFirstMessage(false);
+    setIsLoading(true);
 
-    const botResponse = await ChatService.generateBotResponse();
-    setMessages((prev) => [...prev, botResponse]);
+    const loadingMessage: MessageData = {
+      id: Date.now() + 1,
+      data: "",
+      sender: "bot",
+      type: "loading",
+      timestamp: new Date(),
+    };
+
+    setMessages((prev) => [...prev, loadingMessage]);
+
+    try {
+      const botResponse = await ChatService.generateBotResponse(
+        inputValue.trim(),
+      );
+      setMessages((prev) => prev.slice(0, -1).concat(botResponse));
+    } catch (error: unknown) {
+      setMessages((prev) => prev.slice(0, -1).concat(error as MessageData));
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleInputChange = (value: string) => {
@@ -40,6 +60,7 @@ export const useChat = () => {
     messages,
     inputValue,
     isFirstMessage,
+    isLoading,
     sendMessage,
     handleInputChange,
     handleKeyPress,

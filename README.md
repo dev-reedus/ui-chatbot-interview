@@ -1,73 +1,69 @@
-# React + TypeScript + Vite
+# UI ChatBot - Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple FE ChatBot app, with mocked responses. It can handle different response messages:
 
-Currently, two official plugins are available:
+- Text messages
+- Table data messages
+- Chart data messages
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Features
 
-## React Compiler
+- Real-time chat interface
+- Multiple response types (text, table, chart)
+- Error handling
+- Responsive design with Tailwind CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 💬 How to Use
 
-## Expanding the ESLint configuration
+To trigger a specific response type, you can use the following commands:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Command                                                      | Response Type    | Example                     |
+|--------------------------------------------------------------|------------------|-----------------------------|
+| `elenca gli ultimi utenti` or `show me the last users`       | Table data       | User list with details      |
+| `mostrami le vendite mensili` or `show me the monthly sales` | Chart data       | Monthly sales visualization |
+| `mostrami un errore` or `show me an error`                   | Error message    | Error handling demo         |
+| Any other text                                               | Default response | Standard text reply         |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- React 19
+- TypeScript
+- Tailwind CSS
+- Package Manager: yarn
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📋 Prerequisites
+
+- Node.js (v.22.17.0 or higher)
+- yarn (preferred)
+    - if you don't have it, you can use `npm install -g yarn` to install it globally
+- git (of course)
+
+## 🛠️ Installation & Setup
+
+1. `git clone https://github.com/dev-reedus/ui-chatbot-interview.git`
+
+
+2. `cd ui-chatbot-interview`
+
+
+3. `yarn install`
+
+
+4. `yarn dev`
+
+
+5. open your app at http://localhost:3000
+
+## 📁 Project Structure
+
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+ui-chatbot-interview/
+├── src/
+│   ├── components/     # React components
+│   ├── views/          # Views components
+│   ├── hooks/         # Custom hooks
+│   ├── consts/        # Utility functions
+│   ├── services/      # API services
+│   └── types/         # TypeScript global types
+└── public/            # Static assets
 ```

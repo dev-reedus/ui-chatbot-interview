@@ -6,12 +6,15 @@ This is a simple FE ChatBot app, with mocked responses. It can handle different 
 - Table data messages
 - Chart data messages
 
+You can start chat by typing and press enter/send in the center input field, or using the bottom-right corner button.
+
 ## 🎯 Features
 
 - Real-time chat interface
 - Multiple response types (text, table, chart)
 - Error handling
 - Responsive design with Tailwind CSS
+- Two ways of chat implementation (full screen or lateral dialog)
 
 ## 💬 How to Use
 

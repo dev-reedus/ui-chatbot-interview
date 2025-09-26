@@ -25,7 +25,7 @@ const Home: React.FC<HomeProps> = ({
             name="home-message-input"
             value={inputValue}
             onChange={(e) => onInputChange(e.target.value)}
-            onKeyPress={onKeyPress}
+            onKeyDown={onKeyPress}
             placeholder="Type your message here..."
             className="w-full px-6 py-4 text-lg border-2 border-gray-200 rounded-2xl focus:outline-none focus:border-red-700 focus:ring-4 focus:ring-red-700 transition-all duration-200 shadow-lg"
           />

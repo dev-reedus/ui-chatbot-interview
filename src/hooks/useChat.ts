@@ -12,7 +12,7 @@ export const useChat = () => {
     if (!inputValue.trim() || isLoading) return;
 
     const userMessage: MessageData = {
-      id: Date.now(),
+      id: `user-${Date.now()}`,
       data: inputValue,
       sender: "user",
       type: "text",
@@ -25,7 +25,7 @@ export const useChat = () => {
     setIsLoading(true);
 
     const loadingMessage: MessageData = {
-      id: Date.now() + 1,
+      id: `loading-${Date.now()}`,
       data: "",
       sender: "bot",
       type: "loading",
@@ -56,6 +56,12 @@ export const useChat = () => {
     }
   };
 
+  const resetChat = () => {
+    setMessages([]);
+    setIsFirstMessage(true);
+    setInputValue("");
+  };
+
   return {
     messages,
     inputValue,
@@ -64,5 +70,6 @@ export const useChat = () => {
     sendMessage,
     handleInputChange,
     handleKeyPress,
+    resetChat,
   };
 };

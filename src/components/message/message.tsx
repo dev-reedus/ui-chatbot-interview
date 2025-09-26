@@ -5,6 +5,15 @@ import { TableData } from "./table-message/table-message.model.ts";
 import { ChartData } from "@/components/message/chart-message/chart-message.model.ts";
 import ChartMessage from "@/components/message/chart-message/chart-message.tsx";
 
+const MessageTimestamp: React.FC<{
+  timestamp: string;
+  isError?: boolean;
+}> = React.memo(({ timestamp, isError }) => (
+  <p className={`text-xs mt-1 text-white-100 ${isError ? "text-red-500" : ""}`}>
+    {timestamp}
+  </p>
+));
+
 const Message: React.FC<MessageComponentProps> = ({ message }) => {
   const renderMessageContent = () => {
     if (message.type === "loading") {
@@ -31,12 +40,12 @@ const Message: React.FC<MessageComponentProps> = ({ message }) => {
       return (
         <>
           <TableMessage data={tableData} className="mb-2" />
-          <p className="text-xs mt-1 text-white-100">
-            {message.timestamp.toLocaleTimeString([], {
+          <MessageTimestamp
+            timestamp={message.timestamp.toLocaleTimeString([], {
               hour: "2-digit",
               minute: "2-digit",
             })}
-          </p>
+          />
         </>
       );
     }
@@ -50,12 +59,12 @@ const Message: React.FC<MessageComponentProps> = ({ message }) => {
       return (
         <>
           <ChartMessage data={chartData} className="mb-2" />
-          <p className="text-xs mt-1 text-white-100">
-            {message.timestamp.toLocaleTimeString([], {
+          <MessageTimestamp
+            timestamp={message.timestamp.toLocaleTimeString([], {
               hour: "2-digit",
               minute: "2-digit",
             })}
-          </p>
+          />
         </>
       );
     }
@@ -69,14 +78,13 @@ const Message: React.FC<MessageComponentProps> = ({ message }) => {
             ? message.data
             : JSON.stringify(message.data)}
         </p>
-        <p
-          className={`text-xs mt-1 text-white-100 ${message.type === "error" ? "text-red-500" : ""}`}
-        >
-          {message.timestamp.toLocaleTimeString([], {
+        <MessageTimestamp
+          timestamp={message.timestamp.toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
           })}
-        </p>
+          isError={message.type === "error"}
+        />
       </>
     );
   };
@@ -87,7 +95,7 @@ const Message: React.FC<MessageComponentProps> = ({ message }) => {
        ${message.sender === "user" ? "justify-end slide-in-from-right" : "justify-start slide-in-from-left"}`}
     >
       <div
-        className={`${message.type === "table" || message.type === "chart" ? "lg:max-w-4xl max-w-xs" : "max-w-xs lg:max-w-md"} px-4 py-4 rounded-2xl
+        className={`${message.type === "table" || message.type === "chart" ? "lg:max-w-9/10 max-w-xs" : "max-w-xs lg:max-w-md"} px-4 py-4 rounded-2xl
         ${
           message.sender === "user"
             ? "bg-red-700/50 text-white rounded-tr-sm"

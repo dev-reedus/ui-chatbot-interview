@@ -11,10 +11,11 @@ const Chat: React.FC<ChatProps> = ({
   isLoading,
   onSendMessage,
   onKeyPress,
+  onBack,
 }) => {
   return (
     <div className="h-screen flex flex-col">
-      <ChatHeader />
+      <ChatHeader hasBackIcon onBack={onBack} />
       <div className="lg:w-1/2 md:w-100 m-auto bg-gray-700 mt-2 flex-1 flex flex-col">
         <MessageList messages={messages} />
         <ChatInput

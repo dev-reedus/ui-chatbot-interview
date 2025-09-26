@@ -7,10 +7,11 @@ const ChatInput: React.FC<ChatInputProps> = ({
   onSendMessage,
   onKeyPress,
   isLoading,
+  className = "",
 }) => {
   return (
-    <div className="sticky bottom-0 bg-gray-700 z-10">
-      <div className="pb-4">
+    <div className="sticky bottom-0 bg-gray-700 z-10 rounded-2xl">
+      <div className={`${className} pb-4`}>
         <div className="px-4 py-4 hover:border-red-600 focus-within:border-red-600 border-2 border-gray-200 bg-white/40 rounded-2xl shadow-sm text-white">
           <div className="max-w-4xl mx-auto">
             <div className="flex space-x-3">
@@ -19,7 +20,7 @@ const ChatInput: React.FC<ChatInputProps> = ({
                 disabled={isLoading}
                 value={inputValue}
                 onChange={(e) => onInputChange(e.target.value)}
-                onKeyPress={onKeyPress}
+                onKeyDown={onKeyPress}
                 placeholder="Type your message..."
                 className="flex-1 px-4 py-3 focus:outline-none"
               />

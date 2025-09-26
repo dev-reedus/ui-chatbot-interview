@@ -4,4 +4,5 @@ export interface ChatInputProps {
   onSendMessage: () => void;
   onKeyPress: (e: React.KeyboardEvent) => void;
   isLoading?: boolean;
+  className?: string;
 }

@@ -8,4 +8,5 @@ export interface ChatProps {
   onSendMessage: () => void;
   onKeyPress: (e: React.KeyboardEvent) => void;
   isLoading?: boolean;
+  onBack?: () => void;
 }

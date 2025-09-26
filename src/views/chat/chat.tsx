@@ -8,15 +8,17 @@ const Chat: React.FC<ChatProps> = ({
   messages,
   inputValue,
   onInputChange,
+  isLoading,
   onSendMessage,
   onKeyPress,
 }) => {
   return (
     <div className="h-screen flex flex-col">
       <ChatHeader />
-      <div className="w-1/2 m-auto bg-gray-50 mt-2 flex-1 flex flex-col">
+      <div className="lg:w-1/2 md:w-100 m-auto bg-gray-700 mt-2 flex-1 flex flex-col">
         <MessageList messages={messages} />
         <ChatInput
+          isLoading={isLoading}
           inputValue={inputValue}
           onInputChange={onInputChange}
           onSendMessage={onSendMessage}

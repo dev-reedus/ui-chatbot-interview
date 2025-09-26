@@ -8,12 +8,13 @@ function App() {
     inputValue,
     isFirstMessage,
     sendMessage,
+    isLoading,
     handleInputChange,
     handleKeyPress,
   } = useChat();
 
   return (
-    <div className="w-full bg-gray-50">
+    <div className="w-full bg-gray-700">
       {isFirstMessage ? (
         <Home
           inputValue={inputValue}
@@ -25,6 +26,7 @@ function App() {
         <Chat
           messages={messages}
           inputValue={inputValue}
+          isLoading={isLoading}
           onInputChange={handleInputChange}
           onSendMessage={sendMessage}
           onKeyPress={handleKeyPress}

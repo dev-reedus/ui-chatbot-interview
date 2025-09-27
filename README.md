@@ -65,7 +65,7 @@ ui-chatbot-interview/
 │   ├── components/     # React components
 │   ├── views/          # Views components
 │   ├── hooks/         # Custom hooks
-│   ├── consts/        # Utility functions
+│   ├── consts/        # App constants/mocks
 │   ├── services/      # API services
 │   └── types/         # TypeScript global types
 └── public/            # Static assets

@@ -742,7 +742,6 @@
   dependencies:
     "@babel/types" "^7.28.2"
 
-
 "@types/estree@1.0.8", "@types/estree@^1.0.6":
   version "1.0.8"
   resolved "https://registry.npmjs.org/@types/estree/-/estree-1.0.8.tgz#958b91c991b1867ced318bedea0e215ee050726e"

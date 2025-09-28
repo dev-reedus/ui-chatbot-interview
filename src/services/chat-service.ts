@@ -46,7 +46,7 @@ export class ChatService {
   static async generateBotResponse(inputValue: string): Promise<MessageData> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        switch (inputValue) {
+        switch (inputValue.toLowerCase()) {
           case "elenca gli ultimi utenti":
           case "show me the last users":
             resolve(this.createTableMessage());

@@ -1,5 +1,7 @@
 import React from "react";
 import { ChatButtonProps } from "./chat-button.model.ts";
+import chatIcon from "@/assets/chat.svg";
+import closeChatIcon from "@/assets/close-chat.svg";
 
 const ChatButton: React.FC<ChatButtonProps> = ({ onClick, isOpen = false }) => {
   return (
@@ -18,13 +20,9 @@ const ChatButton: React.FC<ChatButtonProps> = ({ onClick, isOpen = false }) => {
       aria-label={isOpen ? "Close chat" : "Open chat"}
     >
       {isOpen ? (
-        <img
-          src={"src/assets/close-chat.svg"}
-          alt="open chat"
-          className="w-6 h-6"
-        />
+        <img src={closeChatIcon} alt="open chat" className="w-6 h-6" />
       ) : (
-        <img src={"src/assets/chat.svg"} alt="open chat" className="w-6 h-6" />
+        <img src={chatIcon} alt="open chat" className="w-6 h-6" />
       )}
     </button>
   );

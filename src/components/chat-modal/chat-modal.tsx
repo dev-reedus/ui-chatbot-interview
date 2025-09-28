@@ -4,6 +4,7 @@ import ChatInput from "@/components/chat-input/chat-input";
 import { ModalChatProps } from "@/components/chat-modal/chat-modal.model.ts";
 import { useChat } from "@/hooks/useChat.ts";
 import ChatHeader from "@/components/chat-header/chat-header.tsx";
+import chatIcon from "@/assets/chat.svg";
 
 const ModalChat: React.FC<ModalChatProps> = ({ onClose }) => {
   const {
@@ -26,7 +27,7 @@ const ModalChat: React.FC<ModalChatProps> = ({ onClose }) => {
           <div className="flex items-center justify-center h-full">
             <div className="text-center text-gray-400 p-6">
               <div className="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img alt="chat placeholder" src={"src/assets/chat.svg"} />
+                <img alt="chat placeholder" src={chatIcon} />
               </div>
               <p className="text-sm">Start a conversation!</p>
               <p className="text-xs mt-1">Ask me anything to get started.</p>
@@ -39,7 +40,7 @@ const ModalChat: React.FC<ModalChatProps> = ({ onClose }) => {
 
       <div className="mt-5">
         <ChatInput
-          className={"bg-gray-800 [&&]:pb-0 rounded-2xl "}
+          className={"bg-gray-800 [&>div]:pb-0 rounded-2xl "}
           isLoading={isLoading}
           inputValue={inputValue}
           onInputChange={handleInputChange}

@@ -1,4 +1,15 @@
-# UI ChatBot - Assignment
+<div align="center">
+  <a href="https://chatbot-ui.reedus.dev">
+    <img src="public/chat.svg" alt="Logo" width="80" height="80">
+  </a>
+  <h1 align="center">ChatBot UI</h1>
+  <p align="center">
+    An assignment for a Frontend Engineer position
+    <br />
+    <br />
+    <a href="https://chatbot-ui.reedus.dev">View Demo</a>
+  </p>
+</div>
 
 This is a simple FE ChatBot app, with mocked responses. It can handle different response messages:
 
@@ -36,6 +47,8 @@ To trigger a specific response type, you can use the following commands:
 
 ## 📋 Prerequisites
 
+### ⚠ Tailwindcss@4 doesn't support arm32bit architectures, but you can anyway try app on the [demo page](https://chatbot-ui.reedus.dev)
+
 - Node.js (v.22.17.0 or higher)
 - yarn (preferred)
     - if you don't have it, you can use `npm install -g yarn` to install it globally
@@ -56,6 +69,8 @@ To trigger a specific response type, you can use the following commands:
 
 
 5. open your app at http://localhost:3000
+
+You can also deploy it in a container by running `run.sh` script, it will create a docker image and run it on port 8082.
 
 ## 📁 Project Structure
 
